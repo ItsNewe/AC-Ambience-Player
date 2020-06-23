@@ -1,53 +1,43 @@
 #include "audioPlayer.h"
-
+#include <stdio.h>
 audioManager::audioManager() {
     ao_initialize();
-    driver = ao_default_driver_id();
-
     mpg123_init();
-    mh = mpg123_new(NULL, &err);
-    buffer_size = mpg123_outblock(mh);
-    buffer = (char *) malloc(buffer_size * sizeof(char));
-
-    /* set the output format and open the output device */
-    format.bits = mpg123_encsize(encoding) * 8;
-    format.channels = 2;
-    format.rate = 44100;
-    format.byte_format = AO_FMT_NATIVE;
-
-    char key;
-    char value;
-    ao_option aoption{
-            (char*)"dev",
-            (char*)"hw:0,1",
-            NULL
-    };
-
-    dev = ao_open_live(ao_driver_id("alsa"), &format, &aoption);
-    if(dev==NULL){
-        fprintf(stderr, "Error opening device.\n");
-        return;
-    }
+    this->mh = mpg123_new(NULL, &err);
+    this->buffer_size = mpg123_outblock(mh);
+    this->buffer = (char *) malloc(buffer_size * sizeof(char));
 }
 
 int audioManager::playFile(const char *fileName) {
-    /* open the file and get the decoding format */
-    mpg123_open(mh, fileName);
-    mpg123_getformat(mh, &rate, &channels, &encoding);
+    // open the file and get the decoding format
+    mpg123_open(this->mh, fileName);
+    mpg123_getformat(this->mh, &this->rate, &this->channels, &this->encoding);
 
-    /* decode and play */
-    printf("entering play loop");
-    while (mpg123_read(mh, buffer, buffer_size, &done) == MPG123_OK)
-        ao_play(dev, buffer, sizeof(buffer));
-    printf("Play loop ended");
+    // set the output format and open the output device
+    this->format.bits = mpg123_encsize(this->encoding) * BITS;
+    this->format.rate = this->rate;
+    this->format.channels = this->channels;
+    this->format.byte_format = AO_FMT_NATIVE;
+    this->format.matrix = 0;
+
+    this->dev = ao_open_live(ao_driver_id("pulse"), &this->format, NULL);
+    if (this->dev == NULL) {
+        fprintf(stderr, "Error opening device.\n");
+        return 1;
+    }
+
+    // decode and play
+    while (mpg123_read(this->mh, this->buffer, this->buffer_size, &this->done) == MPG123_OK)
+        ao_play(this->dev, this->buffer, this->done);
+
     return 0;
 }
 
 int audioManager::audioCleanUp() {
-    free(buffer);
-    ao_close(dev);
-    mpg123_close(mh);
-    mpg123_delete(mh);
+    free(this->buffer);
+    ao_close(this->dev);
+    mpg123_close(this->mh);
+    mpg123_delete(this->mh);
     mpg123_exit();
     ao_shutdown();
 

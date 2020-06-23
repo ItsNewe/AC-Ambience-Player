@@ -10,7 +10,7 @@ pkg_search_module(AO REQUIRED)
 add_library(mpg123 SHARED IMPORTED )
 set_target_properties(mpg123 PROPERTIES IMPORTED_LOCATION  /usr/local/lib/libmpg123.so)
 
-add_compile_options(${AO_CXXFLAGS} ${mpg123_CXXFLAGS})
+add_compile_options(-lmpg123 -lao)
 
 include_directories(${AO_INCLUDE_DIRS} ${mpg123_INCLUDE_DIRS})
 add_executable(acnl_player src/main.cpp src/audioPlayer.cpp src/fileManager.cpp src/fileManager.h src/audioPlayer.h)

@@ -19,12 +19,12 @@ private:
     size_t done;
     int err;
 
-    int driver;
     ao_device *dev;
     ao_sample_format format;
 
     int channels, encoding;
     long rate;
+
 public:
     audioManager();
     int playFile(const char *fileName);
