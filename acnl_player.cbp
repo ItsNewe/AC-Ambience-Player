@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="acnl_player"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/newe/CLionProjects/acnl-player"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/newe/CLionProjects/acnl-player"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="acnl_player">
+				<Option output="/home/newe/CLionProjects/acnl-player/acnl_player" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/newe/CLionProjects/acnl-player"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 acnl_player"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="acnl_player/fast">
+				<Option output="/home/newe/CLionProjects/acnl-player/acnl_player" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/newe/CLionProjects/acnl-player"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 acnl_player/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/newe/CLionProjects/acnl-player"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/newe/CLionProjects/acnl-player/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/newe/CLionProjects/acnl-player/src/audioPlayer.cpp">
+			<Option target="acnl_player"/>
+		</Unit>
+		<Unit filename="/home/newe/CLionProjects/acnl-player/src/audioPlayer.h">
+			<Option target="acnl_player"/>
+		</Unit>
+		<Unit filename="/home/newe/CLionProjects/acnl-player/src/fileManager.cpp">
+			<Option target="acnl_player"/>
+		</Unit>
+		<Unit filename="/home/newe/CLionProjects/acnl-player/src/fileManager.h">
+			<Option target="acnl_player"/>
+		</Unit>
+		<Unit filename="/home/newe/CLionProjects/acnl-player/src/main.cpp">
+			<Option target="acnl_player"/>
+		</Unit>
+		<Unit filename="/home/newe/CLionProjects/acnl-player/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
