@@ -1,0 +1,28 @@
+#Not done, i still have no use for this yet, but test wil be implemented asap
+
+# use the official gcc image, based on debian
+# can use verions as well, like gcc:5.2
+# see https://hub.docker.com/_/gcc/
+image: gcc
+
+build:
+  stage: build
+  # instead of calling g++ directly you can also use some build toolkit like make
+  # install the necessary build tools when needed
+   before_script:
+     - apt update && apt -y install make autoconf mpg123-dev alsa libao-dev alsa-lib cmake
+  script:
+    - cmake .
+  artifacts:
+    paths:
+      - cmake-build-debug/acnl_player
+      # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
+      # cache:
+      #   paths:
+      #     - "*.o"
+
+# run tests using the binary built before
+test:
+  stage: test
+  script:
+    - ./runmytests.sh

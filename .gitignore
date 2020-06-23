@@ -1,3 +1,5 @@
 .idea/
 assets/
 cmake-build-debug/
+CMakeFiles/
+acnl_player
