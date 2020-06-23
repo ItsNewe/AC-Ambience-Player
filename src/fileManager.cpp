@@ -10,6 +10,4 @@ void getFileList(const std::string& searchPath) {
 
 }
 
-std::string getCleanFileName(std::string &fileName){
-
-}
+std::string getCleanFileName(std::string &fileName){}

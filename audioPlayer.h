@@ -1,8 +1,0 @@
-//
-// Created by newe on 23/06/2020.
-//
-
-#ifndef ACNL_PLAYER_AUDIOPLAYER_H
-#define ACNL_PLAYER_AUDIOPLAYER_H
-
-#endif //ACNL_PLAYER_AUDIOPLAYER_H
