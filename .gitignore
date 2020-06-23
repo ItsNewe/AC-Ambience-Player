@@ -3,3 +3,4 @@ assets/
 cmake-build-debug/
 CMakeFiles/
 acnl_player
+acnl_player.cbp
