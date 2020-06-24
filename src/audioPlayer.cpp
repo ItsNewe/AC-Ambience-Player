@@ -1,6 +1,7 @@
 #include "audioPlayer.h"
 #include <stdio.h>
-audioManager::audioManager() {
+
+AudioManager::AudioManager() {
     ao_initialize();
     mpg123_init();
     this->mh = mpg123_new(NULL, &err);
@@ -8,9 +9,10 @@ audioManager::audioManager() {
     this->buffer = (char *) malloc(buffer_size * sizeof(char));
 }
 
-int audioManager::playFile(const char *fileName) {
+int AudioManager::playFile(const std::string &fileName) {
     // open the file and get the decoding format
-    mpg123_open(this->mh, fileName);
+    printf("Received fileName: %s", fileName);
+    mpg123_open(this->mh, fileName.c_str());
     mpg123_getformat(this->mh, &this->rate, &this->channels, &this->encoding);
 
     // set the output format and open the output device
@@ -33,7 +35,7 @@ int audioManager::playFile(const char *fileName) {
     return 0;
 }
 
-int audioManager::audioCleanUp() {
+int AudioManager::audioCleanUp() {
     free(this->buffer);
     ao_close(this->dev);
     mpg123_close(this->mh);

@@ -7,10 +7,11 @@
 #include <mpg123.h>
 #include <ao/ao.h>
 #include <string>
+#include <bits/stl_tree.h>
 
 #define BITS 8
 
-class audioManager
+class AudioManager
         {
 private:
     mpg123_handle *mh;
@@ -26,8 +27,8 @@ private:
     long rate;
 
 public:
-    audioManager();
-    int playFile(const char *fileName);
+    AudioManager();
+    int playFile(const std::basic_string<char>& fileName);
     int audioCleanUp();
 };
 
