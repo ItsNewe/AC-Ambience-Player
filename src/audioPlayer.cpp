@@ -1,18 +1,17 @@
 #include "audioPlayer.h"
-#include <stdio.h>
 
 AudioManager::AudioManager() {
     ao_initialize();
     mpg123_init();
-    this->mh = mpg123_new(NULL, &err);
+    this->mh = mpg123_new(nullptr, &err);
     this->buffer_size = mpg123_outblock(mh);
     this->buffer = (char *) malloc(buffer_size * sizeof(char));
 }
 
-int AudioManager::playFile(const std::string &fileName) {
+int AudioManager::playFile(int h, FileManager *f) {
     // open the file and get the decoding format
-    printf("Received fileName: %s", fileName);
-    mpg123_open(this->mh, fileName.c_str());
+    printf("Received time: %d | %p;\n", h, &h);
+    mpg123_open(this->mh, f->getFilePathFromHour(h).c_str());
     mpg123_getformat(this->mh, &this->rate, &this->channels, &this->encoding);
 
     // set the output format and open the output device
@@ -22,8 +21,8 @@ int AudioManager::playFile(const std::string &fileName) {
     this->format.byte_format = AO_FMT_NATIVE;
     this->format.matrix = 0;
 
-    this->dev = ao_open_live(ao_driver_id("pulse"), &this->format, NULL);
-    if (this->dev == NULL) {
+    this->dev = ao_open_live(ao_driver_id("pulse"), &this->format, nullptr);
+    if (this->dev == nullptr) {
         fprintf(stderr, "Error opening device.\n");
         return 1;
     }

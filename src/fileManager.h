@@ -29,7 +29,7 @@ public:
     FileManager();
     void getFileListAndStore(const std::string& searchPath);
 
-    const char *getFilePathFromHour(int *h);
+    std::string getFilePathFromHour(int &h);
 };
 
 #endif //ACNL_PLAYER_FILEMANAGER_H

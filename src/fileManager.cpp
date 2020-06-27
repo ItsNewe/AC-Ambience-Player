@@ -9,12 +9,10 @@ FileManager::FileManager(){
 void FileManager::getFileListAndStore(const std::string& type) {
     const fs::path p = ASSETSPATH + type;
     auto *returnVector= new std::vector<std::string>{};
-    returnVector->reserve(23); //Reserve memory for 24 items
-
-    // std::map<int, std::string> returnMap{};
+    returnVector->reserve(23); //Reserve memory for 23 items
 
     // Fill returnVector with unsorted folder contents
-    for(auto& entry : fs::directory_iterator(p)){
+    for(auto& entry : fs::directory_iterator(ASSETSPATH + type)){
         returnVector->push_back(entry.path().string());
     }
 
@@ -22,7 +20,6 @@ void FileManager::getFileListAndStore(const std::string& type) {
 
     int *iTemp= new int(1);
     for(auto const& value: *returnVector) {
-        printf("%d", *iTemp);
         if(type=="hourly"){
             hourlySongs[*iTemp]=(*returnVector)[*iTemp];
         } else if(type=="rainy"){
@@ -62,9 +59,9 @@ void FileManager::getFileListAndStore(const std::string& type) {
     } */
 }
 
-const char *FileManager::getFilePathFromHour(int *h){
-    //??? C'est le bordel avec les pointeurs
-    printf("f: got %p, %d", h, *h);
-    std::cout << &this->hourlySongs[*h] << std::endl;
-    return (const char *)(&this->hourlySongs[*h]);
+std::string FileManager::getFilePathFromHour(int &h){
+    //ToDo: hourlySongs[0]=key(1) = 2 AM, hourlySongs[24] should be 1 AM but results to "", 1 Am is missing; find why
+    std::cout << hourlySongs.at(h+1) << std::endl;
+    auto a = this->hourlySongs.at((char)h);
+    return a;
 }

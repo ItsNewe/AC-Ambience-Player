@@ -7,7 +7,7 @@
 #include <mpg123.h>
 #include <ao/ao.h>
 #include <string>
-#include <bits/stl_tree.h>
+#include "fileManager.h"
 
 #define BITS 8
 
@@ -28,8 +28,8 @@ private:
 
 public:
     AudioManager();
-    int playFile(const std::basic_string<char>& fileName);
     int audioCleanUp();
+    int playFile(int h, FileManager *f);
 };
 
 #endif //ACNL_PLAYER_AUDIOPLAYER_H
