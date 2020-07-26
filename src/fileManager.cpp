@@ -34,30 +34,6 @@ void FileManager::getFileListAndStore(const std::string& type) {
     delete(iTemp);
     delete(returnVector);
 
-    /*
-    for(int i=1; i<=24; i++) {
-        int a = 0;
-        if (i <= 12) {
-            //Iterating through the vectors to find the correct file for the correct hour, since the strings are not sorted in the vector
-            while (returnVector[a].substr(sizeof(ASSETSPATH)+type.size()+6, std::to_string(i).length())!=std::to_string(i)  PROBLEMATIC PART ->  && returnVector[a].substr(sizeof(ASSETSPATH)+type.size()+8, 2)!="PM"){
-                a++;
-            }
-
-        } else { //Since we store the strings along side the 24-hour format hour digit, we need a check for both AM & PM
-            while (returnVector[a].substr(sizeof(ASSETSPATH)+type.size()+6, 1)!=std::to_string(i) && returnVector[a].substr(sizeof(ASSETSPATH)+type.size()+8, 2)!="AM"){
-                a++;
-            }
-        }
-        std::cout <<"'"<<returnVector[a].substr(sizeof(ASSETSPATH)+type.size()+6, 1) << "' || '"<< returnVector[a].substr(sizeof(ASSETSPATH)+type.size()+8, 2) <<"'"<< std::endl;
-
-        if(type=="hourly"){
-            hourlySongs[i]=returnVector[a];
-        } else if(type=="rainy"){
-            hourlyRainySongs[i]=returnVector[a];
-        } else if(type=="snowy"){
-            hourlySnowySongs[i]=returnVector[a];
-        }
-    } */
 }
 
 std::string FileManager::getFilePathFromHour(int &h){

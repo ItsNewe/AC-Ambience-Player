@@ -19,7 +19,7 @@ int getCurrentHourInt(){
     return lTime->tm_hour;
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     //Debug example
 
     signal(SIGINT, sigintCb);
@@ -29,10 +29,10 @@ int main() {
 
     f->getFileListAndStore("hourly");
 
-    //while(!breakSwitch){
+    while(!breakSwitch){
         int h = getCurrentHourInt();
         if(hourStore!=h){
             a->playFile(h, f);
         }
-    //}
+    }
 }

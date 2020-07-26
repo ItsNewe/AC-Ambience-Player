@@ -18,9 +18,8 @@
 
 class FileManager{
 private:
-    //3 maps with the format [24hour, filePath], one for each weather variation
 
-    //ToDo: Switch file handling & storing logic from being managed by main.cpp to being managed by &this
+    //3 maps with the format [24hour, filePath], one for each weather variation
     std::map<int, std::string> hourlySongs{};
     std::map<int, std::string> hourlyRainySongs{};
     std::map<int, std::string> hourlySnowySongs{};
